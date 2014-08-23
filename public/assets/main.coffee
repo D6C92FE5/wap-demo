@@ -1,6 +1,6 @@
 
 # sidebar active
-currentHref = location.pathname.split('/')[1] or 'index'
+currentHref = _.last(location.pathname.split('/')) or 'index'
 $('.sidebar').find('a[href^=\'' + currentHref + '\']').parent().addClass('active')
 
 
