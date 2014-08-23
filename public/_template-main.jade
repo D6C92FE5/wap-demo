@@ -1,0 +1,32 @@
+
+include _mixins.jade
+doctype html
+html(lang="zh-cn")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible",content="IE=Edge")
+    title WaP Demo
+    +css("libs/twitter-bootstrap/3.2.0/css/bootstrap.css")
+    +css("libs/font-awesome/4.1.0/css/font-awesome.min.css")
+    +css("assets/main.css")
+  body
+    .sidebar
+      h1.header WaP Demo
+      ul.nav
+        li: a(href="heatmap") 客流热度图
+        li: a(href="mall") 商场客流统计
+        li: a(href="floor") 楼层客流比例
+        li: a(href="shop") 商家客流比例
+        li: a(href="traffic") 实时客流展示
+        li: a(href="commission") 定制化服务
+
+    .main
+      block main
+
+  +js("libs/jquery/1.11.1/jquery.min.js")
+  +js("libs/underscore.js/1.6.0/underscore-min.js")
+  +js("libs/handlebars.js/1.3.0/handlebars.js")
+  +js("libs/twitter-bootstrap/3.2.0/js/bootstrap.js")
+  +js("libs/d3/3.4.11/d3.min.js")
+  +js("assets/main.js")

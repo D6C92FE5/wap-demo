@@ -1,0 +1,16 @@
+
+extends _template-main.jade
+block main
+  h2 客流实时展示
+  .traffic-box
+    .floor-chooser.btn-group
+      button.btn.btn-default.dropdown-toggle(type="button", data-toggle="dropdown")
+        | 切换楼层
+        span.caret
+      ul.dropdown-menu
+        li: a(href="#") 1 层
+        li: a(href="#") 2 层
+        li: a(href="#") 3 层
+    img.map(src="assets/img/demo-map.png")
+    .chart
+      svg(width="100%", height="100%")

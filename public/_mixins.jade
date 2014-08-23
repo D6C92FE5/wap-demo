@@ -1,0 +1,13 @@
+
+- var cdn = function (url) {
+-   if (url.indexOf("libs/") == 0) {
+-     var url = "//cdnjscn.b0.upaiyun.com/" + url
+-   }
+-   return url
+- }
+
+mixin css(href)
+  link(rel="stylesheet", href=cdn(href))
+
+mixin js(src)
+  script(src=cdn(src))
