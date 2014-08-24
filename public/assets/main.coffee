@@ -1,7 +1,14 @@
 
 # sidebar active
 currentHref = _.last(location.pathname.split('/')) or 'index'
-$('.sidebar').find('a[href^=\'' + currentHref + '\']').parent().addClass('active')
+$sidebar = $('.sidebar')
+$sidebar.find('a[href^=\'' + currentHref + '\']').parent().addClass('active')
+
+# sidebar toggle
+$sidebarToggle = $('.sidebar-toggle')
+$('.sidebar-toggle, .sidebar .mask').click ->
+  $sidebarToggle.children('i').toggleClass('fa-navicon fa-times')
+  $sidebar.toggle()
 
 
 # traffic points

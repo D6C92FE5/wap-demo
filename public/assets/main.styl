@@ -13,7 +13,7 @@ body
   top 0
   bottom 0
   left 0
-  z-index 1000
+  z-index 100
   display none
   width 200px
   overflow-x hidden
@@ -38,9 +38,29 @@ body
       &.active > a
         color #333
         background-color #fcfcfc
+  .mask
+    position fixed
+    top 0
+    left 200px
+    height 100%
+    width 100%
+    background-color rgba(0,0,0,0.4)
+.sidebar-toggle
+  position absolute
+  z-index 110
+  padding 5px 9px
+  color #fcfcfc
+  background-color #2980b9
+  outline none
+  border none
 @media (min-width: 992px)
   .sidebar
     display block
+    .mask
+      display none
+  .sidebar-toggle
+    display none
+
 
 .main
   padding 20px 15px
