@@ -31,6 +31,34 @@ if page == 'heatmap'
     value: _.random(10, 30)
   heatmap.addData(data)
 
+if page == 'mall'
+  chart = c3.generate(
+    bindto: '.chart'
+    padding:
+      top: 20
+      bottom: 5
+      left: 50
+      right: 50
+    data:
+      x: 'x'
+      columns: [
+        ['x', '2013-01-01', '2013-01-02', '2013-01-03', '2013-01-04', '2013-01-05', '2013-01-06']
+        ['mall', 30, 200, 100, 400, 150, 250]
+      ]
+      names:
+        'mall': '平均11:00-14:00客流量达到最大值（单位：千）'
+      type: 'spline'
+      labels: true
+    axis:
+      x:
+        type: 'timeseries'
+        tick:
+          format: '%Y-%m-%d'
+    tooltip:
+      show: false
+  )
+
+
 if page == 'traffic'
   clientIds = ['a', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', ]
 
