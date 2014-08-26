@@ -22,7 +22,7 @@ if page == 'heatmap'
   $heatmap = $('.heatmap')
   heatmap = h337.create(
     container: $heatmap[0]
-    maxOpacity: .7
+    maxOpacity: .5
   )
   $heatmap.children('canvas').attr('width', mapWidth).attr('height', mapHeight)
   data = for i in _.range(200)
@@ -42,11 +42,11 @@ if page == 'mall'
     data:
       x: 'x'
       columns: [
-        ['x', '2013-01-01', '2013-01-02', '2013-01-03', '2013-01-04', '2013-01-05', '2013-01-06']
-        ['mall', 30, 200, 100, 400, 150, 250]
+        ['x', '2013-01-01', '2013-01-02', '2013-01-03', '2013-01-04', '2013-01-05']
+        ['mall', 30, 200, 100, 400, 150]
       ]
       names:
-        'mall': '平均11:00-14:00客流量达到最大值（单位：千）'
+        'mall': '平均 11:00-14:00 客流量达到最大值（单位：千）'
       type: 'spline'
       labels: true
     axis:
@@ -57,6 +57,49 @@ if page == 'mall'
     tooltip:
       show: false
   )
+
+
+if page == 'floor'
+  chart = c3.generate(
+    bindto: '.chart'
+    padding:
+      top: 20
+      bottom: 5
+      left: 50
+      right: 50
+    data:
+      columns: [
+        ['1 层', 800]
+        ['2 层', 400]
+        ['3 层', 200]
+        ['4 层', 100]
+        ['5 层', 100]
+      ]
+      type: 'pie'
+  )
+
+
+if page == 'shop'
+  chart = c3.generate(
+    bindto: '.chart'
+    padding:
+      top: 20
+      bottom: 5
+      left: 100
+      right: 50
+    data:
+      columns: [
+        ['shop', 2.83, 3.44, 3.66, 4.58, 6.56, 6.85, 9.42, 9.54, 11.00, 15.73, ]
+      ]
+      type: 'bar'
+      names:
+        'shop': '2014 年 6 月商场商家的客流量份额 TOP 10'
+    axis:
+      x:
+        type: 'category'
+        categories: ['优衣库', '汉堡王', '星巴克', '华润万家超市', '某电影院', 'ZARA', 'H&M', '必胜客', '肯德基', '麦当劳', ]
+      rotated: true
+)
 
 
 if page == 'traffic'
