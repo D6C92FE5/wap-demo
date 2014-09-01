@@ -140,19 +140,20 @@ if page == 'traffic'
     {x: 700, y: 80}
   ]
   showTrack = (d) ->
+    dest = {x: d.x, y: d.y}
     $$track.append('circle')
       .on('click', hideTrack)
       .attr('class', 'point')
       .attr('r', 5)
-      .attr('cx', xScale(d.x)+'%')
-      .attr('cy', yScale(d.y)+'%')
+      .attr('cx', xScale(dest.x)+'%')
+      .attr('cy', yScale(dest.y)+'%')
     $$current.transition().style('opacity', 0).each 'end', ->
       $$current.classed('hide', true)
       points = for i in _.range(0, _.random(2, 6))
         x: _.random(mapWidth)
         y: _.random(mapHeight)
       points.unshift(_.sample(entries))
-      points.push(d)
+      points.push(dest)
       drawTrack = (i) ->
         p1 = points[i]
         p2 = points[i+1]
